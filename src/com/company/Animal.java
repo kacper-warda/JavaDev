@@ -28,12 +28,13 @@ public class Animal {
     void takeForAWalk() {
         if (this.isAlive) {
             this.weight--;
-            System.out.println("thx for a walk");
+            System.out.println("thx for a walk, bro");
             if (this.weight < MIN_WEIGHT) {
                 this.isAlive = false;
             }
         } else {
             System.out.println("go for jail");
+            System.out.println("nice");
         }
     }
 
