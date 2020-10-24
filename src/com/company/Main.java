@@ -16,5 +16,8 @@ public class Main {
         }
 
         cat.feed(0.5);
+
+        Car fiat = new Car(2003, "Fiat", "Bravo", "gray", 10000.0);
+        System.out.println(fiat.producer + " " + fiat.model + " " + fiat.yearOfProduction);
     }
 }
