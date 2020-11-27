@@ -1,13 +1,21 @@
-package com.company;
+package com.company.creatures;
+
+import com.company.devices.Car;
 
 import java.time.LocalDateTime;
 
-public class Human {
+public class Human extends Animal {
+
+
     public String firstName;
     public String lastName;
     public Animal pet;
     public Double salary;
     private Car car;
+
+    public Human() {
+        super("homo sapiens");
+    }
 
     public Double getSalary() {
         System.out.println("Pobieranie wynagrodzenia: " + LocalDateTime.now());
@@ -39,5 +47,9 @@ public class Human {
         } else {
             System.out.println("Najpierw nazbieraj");
         }
+    }
+
+    public String toString() {
+        return "Kacper Warda";
     }
 }

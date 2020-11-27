@@ -1,4 +1,4 @@
-package com.company;
+package com.company.creatures;
 
 import java.io.File;
 
@@ -8,12 +8,11 @@ public class Animal {
 
     final public String species;
     public Boolean isAlive = true;
-    String name;
+    public String name;
     File pic;
     private Double weight = 10.0;
 
     public Animal(String species) {
-
         this.species = species;
     }
 
@@ -39,7 +38,7 @@ public class Animal {
         }
     }
 
-    Double getWeight() {
+    public Double getWeight() {
         return weight;
     }
 
