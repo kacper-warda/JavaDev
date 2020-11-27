@@ -4,22 +4,13 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Animal cat = new Animal("cat");
-        cat.takeForAWalk();
-        cat.feed(0.5);
-        cat.feed(0.3);
-        cat.takeForAWalk();
-        cat.feed(0.3);
-
-        cat = new Animal("tiger");
-        cat.feed(2.0);
-
         Human me = new Human();
-        System.out.println(me.getSalary());
+        me.setSalary(5000.0);
 
-        me.setSalary(70000000.0);
-        System.out.println(me.getSalary());
+        Car opel = new Car(1999, "opel", "astra", "sraczkowaty", 6000.0);
+        me.setCar(opel);
 
+        System.out.println(me.getCar());
 
     }
 }

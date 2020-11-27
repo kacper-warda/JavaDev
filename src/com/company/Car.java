@@ -5,7 +5,7 @@ public class Car {
     final public String producer;
     final public String model;
     private final String color;
-    private final Double value;
+    Double value;
 
     public Car(Integer yearOfProduction, String producer, String model, String color, Double value) {
         this.yearOfProduction = yearOfProduction;
