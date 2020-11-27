@@ -13,10 +13,11 @@ public class Animal {
     private Double weight = 10.0;
 
     public Animal(String species) {
+
         this.species = species;
     }
 
-    void feed(Double foodWeight) {
+    public void feed(Double foodWeight) {
         if (this.isAlive) {
             this.weight += foodWeight;
             System.out.println("thx for food");
@@ -25,7 +26,7 @@ public class Animal {
         }
     }
 
-    void takeForAWalk() {
+    public void takeForAWalk() {
         if (this.isAlive) {
             this.weight--;
             System.out.println("thx for a walk, bro");
@@ -40,6 +41,10 @@ public class Animal {
 
     Double getWeight() {
         return weight;
+    }
+
+    void setWeight(Double newWeight) {
+        this.weight = newWeight;
     }
 
 

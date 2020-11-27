@@ -11,13 +11,15 @@ public class Main {
         cat.takeForAWalk();
         cat.feed(0.3);
 
-        while (cat.isAlive) {
-            cat.takeForAWalk();
-        }
+        cat = new Animal("tiger");
+        cat.feed(2.0);
 
-        cat.feed(0.5);
+        Human me = new Human();
+        System.out.println(me.getSalary());
 
-        Car fiat = new Car(2003, "Fiat", "Bravo", "gray", 10000.0);
-        System.out.println(fiat.producer + " " + fiat.model + " " + fiat.yearOfProduction);
+        me.setSalary(70000000.0);
+        System.out.println(me.getSalary());
+
+
     }
 }
