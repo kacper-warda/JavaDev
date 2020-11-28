@@ -49,7 +49,5 @@ public class Human extends Animal {
         }
     }
 
-    public String toString() {
-        return "Kacper Warda";
-    }
+
 }
