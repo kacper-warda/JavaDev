@@ -19,7 +19,7 @@ public class Main {
 
 
         Human brotherInLow = new Human("Piotr", "Grygo");
-        brotherInLow.setCash(1000.0);
+        brotherInLow.setCash(3000.0);
 
         try {
             nokia.sell(me, brotherInLow, 50.0);
@@ -27,6 +27,13 @@ public class Main {
             System.out.println("sorry, nie udało się sprzedać");
             System.out.println(e.getMessage());
         }
+
+        try {
+            opel.sell(me, brotherInLow, 2000.0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
         System.out.println("dalsza logika");
 

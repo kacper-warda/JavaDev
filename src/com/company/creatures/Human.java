@@ -45,14 +45,18 @@ public class Human extends Animal {
     }
 
     public void setCar(Car car) {
-        if (this.salary > car.value) {
-            System.out.println("Gratulacje :D");
-            this.car = car;
-        } else if (this.salary > car.value / 12.0) {
-            System.out.println("Kupiłeś auto na raty");
-            this.car = car;
+        if (car == null) {
+            this.car = null;
         } else {
-            System.out.println("Najpierw nazbieraj");
+            if (this.salary > car.value) {
+                System.out.println("Gratulacje :D");
+                this.car = car;
+            } else if (this.salary > car.value / 12.0) {
+                System.out.println("Kupiłeś auto na raty");
+                this.car = car;
+            } else {
+                System.out.println("Najpierw nazbieraj");
+            }
         }
     }
 

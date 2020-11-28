@@ -1,8 +1,10 @@
 package com.company.creatures;
 
+import com.company.devices.Saleable;
+
 import java.io.File;
 
-public class Animal {
+public class Animal implements Saleable {
 
     final static Double MIN_WEIGHT = 2.0;
 
@@ -47,4 +49,8 @@ public class Animal {
     }
 
 
+    @Override
+    public void sell(Human seller, Human buyer, Double price) throws Exception {
+
+    }
 }
