@@ -1,6 +1,7 @@
 package com.company.creatures;
 
 import com.company.devices.Car;
+import com.company.devices.Phone;
 
 import java.time.LocalDateTime;
 
@@ -10,11 +11,17 @@ public class Human extends Animal {
     public String firstName;
     public String lastName;
     public Animal pet;
-    public Double salary;
+    public Phone phone;
     private Car car;
+    public Double salary;
+    private Double cash;
 
-    public Human() {
+    public Human(String firstName, String lastName) {
         super("homo sapiens");
+        this.cash = 0.0;
+        this.salary = 0.0;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     public Double getSalary() {
@@ -50,4 +57,16 @@ public class Human extends Animal {
     }
 
 
+    public Double getCash() {
+        return cash;
+    }
+
+    public void setCash(Double cash) {
+        if (cash != null) {
+            this.cash = cash;
+        } else {
+            System.out.println("nie można mieć nieznaną liczbę gotówki");
+        }
+
+    }
 }
