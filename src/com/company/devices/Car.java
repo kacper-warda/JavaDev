@@ -1,6 +1,8 @@
 package com.company.devices;
 
-public class Car extends Device {
+import java.io.Serializable;
+
+public class Car extends Device implements Saleable, Serializable {
     private final String color;
     public Double value;
 
@@ -8,6 +10,16 @@ public class Car extends Device {
         super(yearOfProduction, producer, model);
         this.color = color;
         this.value = value;
+    }
+
+    @Override
+    public void turnOn() {
+        System.out.println("key turned");
+        System.out.println("not working");
+        System.out.println("key turned");
+        System.out.println("not working");
+        System.out.println("key turned");
+        System.out.println("engine started");
     }
 
     @Override
@@ -19,5 +31,15 @@ public class Car extends Device {
                 ", color='" + color + '\'' +
                 ", value=" + value +
                 '}';
+    }
+
+    @Override
+    public void sell() {
+        System.out.println("sprzedano (walnięcie młotkiem)");
+    }
+
+    @Override
+    public void sellOnCredit() {
+        System.out.println("sprzedano (bank się cieszy)");
     }
 }
