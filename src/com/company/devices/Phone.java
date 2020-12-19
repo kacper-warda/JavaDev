@@ -2,9 +2,14 @@ package com.company.devices;
 
 import com.company.creatures.Human;
 
+import java.util.List;
+
 public class Phone extends Device implements Saleable {
 
     public final Double screenSize;
+
+    public static final String DEFAULT_APP_VERSION = "LATEST";
+    public static final String DEFAULT_SERVER_ADDRESS = "appserver.me.com";
 
     public Phone(Integer yearOfProduction, String producer, String model, Double screenSize) {
         super(yearOfProduction, producer, model);
@@ -42,4 +47,35 @@ public class Phone extends Device implements Saleable {
         seller.phone = null;
         System.out.println("telefon sprzedano za " + price + " od " + seller.firstName + " do " + buyer.firstName);
     }
+
+    public boolean installAnApp(List<String> appNames) {
+        for (String appName : appNames) {
+            installAnApp(appName);
+        }
+        return true;
+    }
+
+    public boolean installAnApp(String appName) {
+        return installAnApp(appName, DEFAULT_APP_VERSION);
+    }
+
+    public boolean installAnApp(String appName, String version) {
+        return installAnApp(appName, version, DEFAULT_SERVER_ADDRESS);
+    }
+
+    public boolean installAnApp(String appName, String version, String server) {
+        //weryfikacja wieku użytkownika
+        //sprawdzenie czy mamy dość miejsca na telefonie
+        //sprawdzenie czy płatne
+        //przekierowanie do płatności
+        //wykonanie płatności
+        //weryfikacja płatności
+        //pobranie aplikacji
+        //skanowanie aplikacji/sprawdzenie sumy kontrolnej
+        //rozpakowanie pliku z aplikacją
+        //instalacja
+        System.out.println("Zainstalowano " + appName + " w wersji " + version + " z serwera " + server);
+        return true;
+    }
+
 }

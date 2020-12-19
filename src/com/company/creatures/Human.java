@@ -24,6 +24,11 @@ public class Human extends Animal {
         this.lastName = lastName;
     }
 
+    public Human(String firstName) {
+        super("homo sapiens");
+        this.firstName = firstName;
+    }
+
     public Double getSalary() {
         System.out.println("Pobieranie wynagrodzenia: " + LocalDateTime.now());
         return salary;
@@ -72,5 +77,13 @@ public class Human extends Animal {
             System.out.println("nie można mieć nieznaną liczbę gotówki");
         }
 
+    }
+
+    public void feed() {
+        System.out.println("dzięki za jedzenie, gdzie masz widelce?");
+    }
+
+    public String toString() {
+        return this.firstName + " " + this.lastName;
     }
 }

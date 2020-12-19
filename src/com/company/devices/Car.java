@@ -22,16 +22,7 @@ public class Car extends Device implements Saleable {
         System.out.println("engine started");
     }
 
-    @Override
-    public String toString() {
-        return "Car{" +
-                "yearOfProduction=" + yearOfProduction +
-                ", producer='" + producer + '\'' +
-                ", model='" + model + '\'' +
-                ", color='" + color + '\'' +
-                ", value=" + value +
-                '}';
-    }
+
 
 
     @Override
@@ -41,7 +32,7 @@ public class Car extends Device implements Saleable {
         }
         if (seller.getCar() == null) {
             System.out.println("Sorry nie masz samochodu");
-            throw new Exception("Brak telefonu");
+            throw new Exception("Brak samochodu");
         }
         if (buyer.getCash() < price) {
             System.out.println("Sorry, nie masz kasy");
@@ -53,5 +44,16 @@ public class Car extends Device implements Saleable {
         seller.setCar(null);
         System.out.println("samochód sprzedano za " + price + " od " + seller.firstName + " do " + buyer.firstName);
 
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "color='" + color + '\'' +
+                ", value=" + value +
+                ", yearOfProduction=" + yearOfProduction +
+                ", producer='" + producer + '\'' +
+                ", model='" + model + '\'' +
+                '}';
     }
 }
