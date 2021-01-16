@@ -15,8 +15,15 @@ public class Main {
 
         me.setCar(opel, 0);
 
-        System.out.println(me.sumAllCarsValue());
+        Human brotherInLow = new Human("Pioter", "Szfagier");
+        brotherInLow.setCash(500.0);
 
+        try {
+            opel.sell(me, brotherInLow, 300.0);
+        } catch (Exception e) {
+            System.out.println("niestety nie udało się sprzedać");
+            e.printStackTrace();
+        }
 
 
     }
