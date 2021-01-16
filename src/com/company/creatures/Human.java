@@ -12,21 +12,34 @@ public class Human extends Animal {
     public String lastName;
     public Animal pet;
     public Phone phone;
-    private Car car;
+    public static final Integer GARAGE_DEFAULT_SIZE = 4;
     public Double salary;
     private Double cash;
+    public static final String HOMO_SAPIENS = "homo sapiens";
+    private final Car[] garage;
 
-    public Human(String firstName, String lastName) {
-        super("homo sapiens");
+    public Human(String firstName, String lastName, Integer garageSize) {
+        super(HOMO_SAPIENS);
         this.cash = 0.0;
         this.salary = 0.0;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.garage = new Car[garageSize];
+    }
+
+    public Human(String firstName, String lastName) {
+        super(HOMO_SAPIENS);
+        this.cash = 0.0;
+        this.salary = 0.0;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.garage = new Car[GARAGE_DEFAULT_SIZE];
     }
 
     public Human(String firstName) {
-        super("homo sapiens");
+        super(HOMO_SAPIENS);
         this.firstName = firstName;
+        this.garage = new Car[GARAGE_DEFAULT_SIZE];
     }
 
     public Double getSalary() {
@@ -45,24 +58,22 @@ public class Human extends Animal {
         }
     }
 
-    public Car getCar() {
-        return car;
+    public Car getCar(Integer parkNumber) {
+        return garage[parkNumber];
     }
 
-    public void setCar(Car car) {
-        if (car == null) {
-            this.car = null;
-        } else {
-            if (this.salary > car.value) {
-                System.out.println("Gratulacje :D");
-                this.car = car;
-            } else if (this.salary > car.value / 12.0) {
-                System.out.println("Kupiłeś auto na raty");
-                this.car = car;
-            } else {
-                System.out.println("Najpierw nazbieraj");
+    public void setCar(Car car, Integer parkNumber) {
+        this.garage[parkNumber] = car;
+    }
+
+    public Double sumAllCarsValue() {
+        Double sum = 0.0;
+        for (int i = 0; i < this.garage.length; i++) {
+            if (this.garage[i] != null) {
+                sum = sum + this.garage[i].value;
             }
         }
+        return sum;
     }
 
 
@@ -85,5 +96,26 @@ public class Human extends Animal {
 
     public String toString() {
         return this.firstName + " " + this.lastName;
+    }
+
+    public boolean hasCar(Car car) {
+        boolean hasThisCar = false;
+        for (int i = 0; i < this.garage.length; i++) {
+            if (this.garage[i] == car) {
+                hasThisCar = true;
+                break;
+            }
+        }
+        return hasThisCar;
+    }
+
+    public boolean hasFreeSpace() {
+        boolean hasFreeSpace = false;
+        for (int i = 0; i < this.garage.length; i++) {
+            if (this.garage[i] == null) {
+                hasFreeSpace = true;
+                break;
+            }
+        }
     }
 }

@@ -2,6 +2,7 @@ package com.company.devices;
 
 import com.company.creatures.Human;
 
+import java.net.URL;
 import java.util.List;
 
 public class Phone extends Device implements Saleable {
@@ -49,9 +50,7 @@ public class Phone extends Device implements Saleable {
     }
 
     public boolean installAnApp(List<String> appNames) {
-        for (String appName : appNames) {
-            installAnApp(appName);
-        }
+        System.out.println("ale głupie te zadania");
         return true;
     }
 
@@ -75,6 +74,11 @@ public class Phone extends Device implements Saleable {
         //rozpakowanie pliku z aplikacją
         //instalacja
         System.out.println("Zainstalowano " + appName + " w wersji " + version + " z serwera " + server);
+        return true;
+    }
+
+    public boolean installAnApp(URL url) {
+        System.out.println();
         return true;
     }
 

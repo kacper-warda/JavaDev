@@ -4,7 +4,6 @@ import com.company.creatures.Human;
 
 public class Car extends Device implements Saleable {
     private final String color;
-    public Double value;
 
     public Car(Integer yearOfProduction, String producer, String model, String color, Double value) {
         super(yearOfProduction, producer, model);
@@ -27,23 +26,20 @@ public class Car extends Device implements Saleable {
 
     @Override
     public void sell(Human seller, Human buyer, Double price) throws Exception {
-        if (seller.getCash() == null || buyer.getCash() == null) {
-            throw new Exception("Musisz zdefiniować stan portfela ");
+        if (!seller.hasCar(this)) {
+            throw new Exception("SPRZEDAWCA NIE MA AUUUTAA111!!!!1");
         }
-        if (seller.getCar() == null) {
-            System.out.println("Sorry nie masz samochodu");
-            throw new Exception("Brak samochodu");
+        if (!buyer.hasFreeSpace()) {
+            throw new Exception("Kupujący nie ma miejsca w garażu");
         }
         if (buyer.getCash() < price) {
-            System.out.println("Sorry, nie masz kasy");
-            throw new Exception("Brak pieniędzy");
+            throw new Exception("Brak kasy u kupującego");
         }
-        buyer.setCash(buyer.getCash() - price);
+        seller.removeCar(this);
+        buyer.addCar(this);
         seller.setCash(seller.getCash() + price);
-        buyer.setCar(seller.getCar());
-        seller.setCar(null);
-        System.out.println("samochód sprzedano za " + price + " od " + seller.firstName + " do " + buyer.firstName);
-
+        buyer.setCash(buyer.getCash() - price);
+        System.out.println("Transakcja zakończona sukcesem");
     }
 
     @Override
