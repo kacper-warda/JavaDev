@@ -3,18 +3,21 @@ package com.company.devices;
 import com.company.creatures.Human;
 
 import java.net.URL;
-import java.util.List;
+import java.util.*;
 
 public class Phone extends Device implements Saleable {
 
     public final Double screenSize;
+    public Set<Application> applications = new HashSet<>();
+    private Human owner;
 
     public static final String DEFAULT_APP_VERSION = "LATEST";
     public static final String DEFAULT_SERVER_ADDRESS = "appserver.me.com";
 
-    public Phone(Integer yearOfProduction, String producer, String model, Double screenSize) {
+    public Phone(Integer yearOfProduction, String producer, String model, Double screenSize, Human owner) {
         super(yearOfProduction, producer, model);
         this.screenSize = screenSize;
+        this.owner = owner;
     }
 
 
@@ -76,6 +79,35 @@ public class Phone extends Device implements Saleable {
         System.out.println("Zainstalowano " + appName + " w wersji " + version + " z serwera " + server);
         return true;
     }
+
+    public void installAnApp(Application app) throws Exception {
+        if (this.owner.getCash() < app.price) {
+            throw new Exception("Brak kasy");
+        }
+        this.applications.add(app);
+        this.owner.setCash(this.owner.getCash() - app.price);
+    }
+
+    public boolean isInstalled(Application app) {
+        return this.applications.contains(app);
+    }
+
+    public boolean isInstalled(String appName) {
+        for (Application application : this.applications) {
+            if (application.name.equals(appName)) {
+                return true;
+            }
+        }
+        return false;
+     }
+
+     public void printAllFreeApps(){
+        for(Application application : this.applications){
+            if(application.price == 0.0){
+                System.out.println(application.name);
+            }
+        }
+     }
 
     public boolean installAnApp(URL url) {
         System.out.println();

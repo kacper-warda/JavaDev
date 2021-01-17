@@ -63,7 +63,7 @@ public class Car extends Device implements Saleable {
     }
 
     public Integer numberOfTransactions(){
-        if(owners != null){
+        if(owners != null && !owners.isEmpty()){
             return owners.size() -1;
         } else {
             return 0;
