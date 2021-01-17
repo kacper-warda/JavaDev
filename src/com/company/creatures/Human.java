@@ -64,6 +64,7 @@ public class Human extends Animal {
 
     public void setCar(Car car, Integer parkNumber) {
         this.garage[parkNumber] = car;
+        car.owners.add(this);
     }
 
     public Double sumAllCarsValue() {

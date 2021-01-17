@@ -25,6 +25,8 @@ public class Main {
             e.printStackTrace();
         }
 
+        System.out.println("Liczba transakcji: " + opel.numberOfTransactions());
+
 
     }
 }
