@@ -3,68 +3,55 @@ package com.company;
 import com.company.creatures.Human;
 import com.company.devices.Car;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
 
 
-        Human me = new Human("Kacper", "Warda");
-        me.setSalary(5000.0);
+        List<String> list = new ArrayList<>();
+        list.add("Warszawa");
+        list.add("Palermo");
+        list.add("Tokio");
 
-        Car opel = new Car(1988, "Opel", "Vectra", "brown", -200.0);
-
-        System.out.println("Liczba transakcji: " + opel.numberOfTransactions());
-
-        me.setCar(opel, 0);
-
-        Human brotherInLow = new Human("Pioter", "Szfagier");
-        brotherInLow.setCash(500.0);
-
-        try {
-            opel.sell(me, brotherInLow, 300.0);
-        } catch (Exception e) {
-            System.out.println("niestety nie udało się sprzedać");
-            e.printStackTrace();
+        for(String city : list){
+            System.out.println(city);
         }
 
-        System.out.println("Liczba transakcji: " + opel.numberOfTransactions());
+        list.remove("Warszawa");
+        list.clear();
 
-        List<String> texts = new ArrayList<>();
-        String bob = "Bob";
-        String alex = "Alex";
-        String janusz = "Janusz";
+        Map<String, String> capitalCities = new HashMap<>();
+        capitalCities.put("Poland","Warsaw");
+        capitalCities.put("GB","London");
+        capitalCities.put("Italy","Rome");
+        capitalCities.put("onomatopeja","reprezentuje biedę");
 
-        texts.add(bob);
-        texts.add(bob);
-        texts.add(bob);
-        texts.add(janusz);
-        texts.add(alex);
+        System.out.println(capitalCities.get("Poland"));
+        System.out.println(capitalCities.get("onomatopeja"));
 
-        System.out.println(texts.size());
+        Map<String, Human> humanByNames = new HashMap<>();
+        humanByNames.put("kacper",new Human("kacper"));
+        Human human = new Human("karolina");
+        humanByNames.put(human.firstName,human);
 
-        System.out.println("ELEMENTY LISTY:");
-        for(int i = 0; i< texts.size(); i++){
-            System.out.println(texts.get(i));
+
+        humanByNames.get("kacper");
+        humanByNames.remove("kacper");
+
+        humanByNames.put("karolina", new Human("kasia"));
+        humanByNames.put("kasia", new Human("kasia"));
+
+        for(Human someone : humanByNames.values()){
+            System.out.println(someone);
         }
 
-        Set<String> textsSet = new TreeSet<>();
-        textsSet.add(bob);
-        textsSet.add(bob);
-        textsSet.add(bob);
-        textsSet.add(janusz);
-        textsSet.add(alex);
-
-        System.out.println(textsSet.size());
-
-        Object[] insideSet = textsSet.toArray();
-        for (int i = 0; i< textsSet.size();i++){
-            System.out.println(insideSet[i]);
+        for(String name : humanByNames.keySet()){
+            System.out.println(humanByNames.get(name));
         }
+
+
 
     }
 }
